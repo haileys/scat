@@ -7,8 +7,8 @@ languages = {
 	/\.rb$/       => :ruby,
 	/\.js$/       => :javascript,
 	/\.php$/      => :php,
-	/\.c(c|pp)$/  => :cpp,
-	/\.h(h|pp)$/  => :cpp,
+	/\.c(c|pp)?$/ => :cpp,
+	/\.h(h|pp)?$/ => :cpp,
 }
 
 ARGV.each do |file|
