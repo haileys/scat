@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+require "coderay"
+
+lang = ARGV.shift[2..-1] if ARGV.first =~ /^-L(.*)/
+
+languages = {
+	/\.rb$/       => :ruby,
+	/\.js$/       => :javascript,
+	/\.php$/      => :php,
+	/\.c(c|pp)$/  => :cpp,
+	/\.h(h|pp)$/  => :cpp,
+}
+
+ARGV.each do |file|
+  puts CodeRay.scan(File.read(file), lang || languages.detect { |re,lang| re =~ file }[1]).terminal
+end
